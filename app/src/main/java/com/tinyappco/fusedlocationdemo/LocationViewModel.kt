@@ -42,8 +42,6 @@ data class LocationUiState(
 
 class LocationViewModel(application: Application) : AndroidViewModel(application) {
 
-
-
     private val _uiState = MutableStateFlow(LocationUiState())
     val uiState: StateFlow<LocationUiState> = _uiState.asStateFlow()
 
@@ -203,7 +201,7 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
         return fineLocation || coarseLocation
     }
 
-    //uses Number because lat/long are double, but accuracy is float
+    //uses Number because lat/long are double, but accuracy is a float
     private fun format(value: Number?, places: Int, unit: String = "") : String {
         if (value != null) {
             val formatString = "%.${places}f$unit)"
